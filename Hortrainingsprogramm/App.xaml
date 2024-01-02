@@ -1,0 +1,28 @@
+﻿<Application
+    x:Class="Hortrainingsprogramm.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    StartupUri="StartWindow.xaml">
+
+    <!--  Custom_MessageBox.CustomMessageBox.xmal  -->
+
+    <!--  StartupUri="StartWindow.xaml"  -->
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/TextBoxWatermarktStyle.xaml" />
+                <ResourceDictionary Source="Styles/CheckBoxStyles.xaml" />
+                <ResourceDictionary Source="Styles/PageStyles.xaml" />
+                <ResourceDictionary Source="Styles/ButtonStyles.xaml" />
+                <ResourceDictionary Source="Styles/RadioButtonStyles.xaml" />
+                <ResourceDictionary Source="Styles/ScrollViewerStyle.xaml" />
+                <ResourceDictionary Source="Styles/ComboboxStyles.xaml" />
+                <ResourceDictionary Source="Styles/CustomSliderStyle.xaml" />
+                <ResourceDictionary Source="Styles/TextBoxStyle.xaml" />
+                <ResourceDictionary Source="Styles/SettingStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

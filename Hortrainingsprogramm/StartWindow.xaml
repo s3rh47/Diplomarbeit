@@ -1,0 +1,120 @@
+﻿<Window
+    x:Class="Hortrainingsprogramm.StartWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="800"
+    Height="600"
+    AllowsTransparency="True"
+    Loaded="StartWindow_Loaded"
+    MouseDown="StartWindow_mouseDown"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <!--  Windows Backgroung Einstellen  -->
+    <Window.Background>
+        <LinearGradientBrush Opacity="0.6" SpreadMethod="Pad" StartPoint="0.8,0.5" EndPoint="0.5,1">
+            <GradientStop Offset="0" Color="#FF0E2438" />
+            <GradientStop Offset="1" Color="#FF8C0C0C" />
+            <GradientStop Offset="0.863" Color="#FF354A63" />
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <!--  Haupt Grid  -->
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!--  Definition von GridRow  -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*" />
+            <!--  1. Gridrow oben  -->
+            <RowDefinition Height="5*" />
+            <!--  2. Gridrow unten  -->
+        </Grid.RowDefinitions>
+
+        <!--  Anzeige fürs Hörtrainingsprogramm-Bild  -->
+
+        <Image
+            Grid.Row="0"
+            Margin="0,20,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            RenderOptions.BitmapScalingMode="HighQuality"
+            Source="Images/hearing.png" />
+
+
+        <!--  Mittleres Grid  -->
+        <Grid
+            Grid.Row="1"
+            Width="600"
+            Height="300"
+            Margin="0,86,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top">
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="1.5*" />
+            </Grid.ColumnDefinitions>
+
+         
+            <Border
+                Grid.Column="0"
+                CornerRadius="15,0,0,15"
+                OpacityMask="Black"
+                SnapsToDevicePixels="True">
+
+                <Border.Background>
+                    <LinearGradientBrush Opacity="0.7" StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Offset="1" Color="#FF0B0A19" />
+                        <GradientStop Color="Black" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+
+            <Border
+                Grid.Column="1"
+                CornerRadius="0,15,15,0"
+                OpacityMask="Black">
+
+                <Border.Background>
+                    <LinearGradientBrush Opacity="0.7" StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Offset="1" Color="#FF130A19" />
+                        <GradientStop Color="#FF0D1B1B" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+
+            <ContentControl
+                Grid.Column="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="{Binding CurrentViewLeft}" />
+
+            <ContentControl
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Content="{Binding CurrentViewRight}" />
+
+            <Ellipse
+                Grid.Column="1"
+                Width="140"
+                Height="140"
+                Margin="0,-70,0,0"
+                VerticalAlignment="Top">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="Images/erzincanSelale.jpg" Stretch="UniformToFill" />
+                </Ellipse.Fill>
+            </Ellipse>
+        </Grid>
+    </Grid>
+</Window>

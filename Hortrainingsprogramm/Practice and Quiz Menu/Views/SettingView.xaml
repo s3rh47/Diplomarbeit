@@ -1,0 +1,376 @@
+﻿<Window
+    x:Class="Hortrainingsprogramm.Practice_and_Quiz_Menu.Views.SettingView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:services="clr-namespace:Hortrainingsprogramm.Services"
+    Width="400"
+    Height="500"
+    AllowsTransparency="True"
+    Background="Transparent"
+    DataContext="{Binding SettingViewModel, Source={x:Static services:ViewModelLocator.Instance}}"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d" MouseDown="Settings_MouseDown">
+
+
+    <Grid>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10*" />
+        </Grid.RowDefinitions>
+
+        <Border
+            Grid.Row="0"
+            Background="Black"
+            BorderThickness="1"
+            CornerRadius="20 20 0 0">
+
+            <Grid Height="30">
+
+                <iconPacks:PackIconVaadinIcons
+                    Grid.Row="0"
+                    Width="30"
+                    Height="30"
+                    Margin="10,0,0,0"
+                    Foreground="White"
+                    Kind="Options" />
+
+
+                <TextBlock
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="23"
+                    FontWeight="Thin"
+                    Foreground="White"
+                    Text="{Binding SettingCaption}" />
+
+                <StackPanel
+                    HorizontalAlignment="Right"
+                    FlowDirection="RightToLeft"
+                    Orientation="Horizontal">
+
+                    <Button
+                        Margin="5,0,0,0"
+                        Command="{Binding SettingSaveCommand}"
+                        Style="{StaticResource closeButtonStyle}" />
+
+                </StackPanel>
+            </Grid>
+
+        </Border>
+
+
+
+        <Border
+            Grid.Row="1"
+            Background="#FF1C1C21"
+            BorderThickness="1"
+            CornerRadius="0 0 20 20">
+
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="7*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+
+
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+
+                    <StackPanel>
+
+                        <!--  Mode Grid Kismi  -->
+
+                        <GroupBox x:Name="Grup1" BorderThickness="0">
+
+
+                            <Grid Height="100" Margin="0,10,0,0">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="7*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+
+                                <Grid.RowDefinitions>
+
+                                    <RowDefinition />
+                                    <RowDefinition />
+
+                                </Grid.RowDefinitions>
+
+
+                                <iconPacks:PackIconMaterial
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Width="40"
+                                    Height="30"
+                                    Margin="5,0,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="White"
+                                    Kind="CursorDefaultClick" />
+
+
+
+                                <iconPacks:PackIconModern
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Width="40"
+                                    Height="30"
+                                    Margin="5,0,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="White"
+                                    Kind="InterfaceTextbox" />
+
+
+
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Margin="20,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    FontWeight="Thin"
+                                    Foreground="White"
+                                    Text="{Binding ButtonModeText}" />
+
+
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Margin="20,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    FontWeight="Thin"
+                                    Foreground="White"
+                                    Text="{Binding TextBoxModeText}" />
+
+
+                                <RadioButton
+                                    Grid.Row="0"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Command="{Binding ButtonModeCommand}"
+                                    Cursor="Hand"
+                                    IsChecked="{Binding isButtonModeChecked}"
+                                    Style="{DynamicResource RadioButtonStyleForSetting}" />
+
+                                <RadioButton
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Command="{Binding TextBoxModeCommand}"
+                                    Cursor="Hand"
+                                    IsChecked="{Binding isTextBoxModeChecked}"
+                                    Style="{DynamicResource RadioButtonStyleForSetting}" />
+
+
+                                <Border
+                                    Grid.Row="1"
+                                    Grid.ColumnSpan="3"
+                                    Margin="5,0,5,0"
+                                    BorderBrush="White"
+                                    BorderThickness="0,0.3,0,0" />
+
+                            </Grid>
+
+                        </GroupBox>
+
+
+                        <Border BorderBrush="White" BorderThickness="0,1,0,0" />
+
+
+                        <!--  Round Einstelung Kismi  -->
+
+
+                        <TextBlock
+                            Margin="0 10 0 0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="15"
+                            FontWeight="Thin"
+                            Text="{Binding RoundCaption}"
+                            Foreground="white" />
+
+                        
+                        <GroupBox x:Name="Grup2" BorderThickness="0">
+
+
+
+                            <Grid Height="150" Margin="0,10,0,0">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="7*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+
+                                <Grid.RowDefinitions>
+
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+
+                                </Grid.RowDefinitions>
+
+                                <iconPacks:PackIconBootstrapIcons
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Width="40"
+                                    Height="30"
+                                    Margin="5,0,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="White"
+                                    Kind="Dice1" />
+
+
+
+                                <iconPacks:PackIconBootstrapIcons
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Width="40"
+                                    Height="30"
+                                    Margin="5,0,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="White"
+                                    Kind="Dice2" />
+
+
+                                <iconPacks:PackIconBootstrapIcons
+                                    Grid.Row="2"
+                                    Grid.Column="0"
+                                    Width="40"
+                                    Height="30"
+                                    Margin="5,0,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Foreground="White"
+                                    Kind="Dice3" />
+
+
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Margin="20,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    FontWeight="Thin"
+                                    Foreground="White"
+                                    Text="{Binding GamesRoundTitle10}" />
+
+
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Margin="20,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    FontWeight="Thin"
+                                    Foreground="White"
+                                    Text="{Binding GamesRoundTitle20}" />
+
+
+                                <TextBlock
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    Margin="20,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    FontWeight="Thin"
+                                    Foreground="White"
+                                    Text="{Binding GamesRoundTitle30}" />
+
+
+                                <RadioButton
+                                    Grid.Row="0"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Command="{Binding GameRound10Command}"
+                                    Cursor="Hand"
+                                    IsChecked="{Binding isGameRound10Checked}"
+                                    Style="{DynamicResource RadioButtonStyleForSetting}" />
+
+
+                                <RadioButton
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Command="{Binding GameRound20Command}"
+                                    Cursor="Hand"
+                                    IsChecked="{Binding isGameRound20Checked}"
+                                    Style="{DynamicResource RadioButtonStyleForSetting}" />
+
+                                <RadioButton
+                                    Grid.Row="2"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Command="{Binding GameRound30Command}"
+                                    Cursor="Hand"
+                                    IsChecked="{Binding isGameRound30Checked}"
+                                    Style="{DynamicResource RadioButtonStyleForSetting}" />
+
+
+                                <Border
+                                    Grid.Row="1"
+                                    Grid.ColumnSpan="3"
+                                    Margin="5,0,5,0"
+                                    BorderBrush="White"
+                                    BorderThickness="0,0.3,0,0" />
+
+
+                                <Border
+                                    Grid.Row="2"
+                                    Grid.ColumnSpan="3"
+                                    Margin="5,0,5,0"
+                                    BorderBrush="White"
+                                    BorderThickness="0,0.3,0,0" />
+                            </Grid>
+                        </GroupBox>
+
+
+                        <Border BorderBrush="White" BorderThickness="0,1,0,0" />
+
+                    </StackPanel>
+                </ScrollViewer>
+
+
+                <Button
+                    Grid.Row="1"
+                    Margin="100,5,100,5"
+                    Background="#FFBE1622"
+                    BorderBrush="White"
+                    Command="{Binding SettingSaveCommand}"
+                    Content="{Binding SaveButtonText}"
+                    Cursor="Hand"
+                    FontSize="20"
+                    FontWeight="Light"
+                    Foreground="White"
+                    Style="{StaticResource ZoomButtonStyleForNormalButtons}" />
+
+            </Grid>
+        </Border>
+
+
+
+    </Grid>
+</Window>

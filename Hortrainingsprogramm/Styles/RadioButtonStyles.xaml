@@ -1,0 +1,137 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ripple="clr-namespace:Hortrainingsprogramm.Components">
+
+    <SolidColorBrush x:Key="RadioButtonBorder" Color="Transparent" />
+
+    <SolidColorBrush x:Key="RadioButtonBackgroundColor" Color="#FFBE1622" />
+    <SolidColorBrush x:Key="RadioButtonBackgroundColorChecked" Color="#66BE1622" />
+    <SolidColorBrush x:Key="RadioButtonBackgroundColorMouseOver" Color="#99BE1622" />
+
+    <SolidColorBrush x:Key="insideBorderBackgroundColor" Color="#3FFFFFFF" />
+    <SolidColorBrush x:Key="FirstBorderBackgroundColor" Color="white" />
+    <SolidColorBrush x:Key="SecondBorderBackgroundColor" Color="White" />
+
+    <SolidColorBrush x:Key="TextColorStandard" Color="White" />
+    <SolidColorBrush x:Key="TextColorMouseOver" Color="white" />
+    <SolidColorBrush x:Key="TextColorIsChecked" Color="White" />
+
+
+    <Style x:Key="RadioButtonStyle" TargetType="RadioButton">
+        <Setter Property="Height" Value="50" />
+        <Setter Property="Margin" Value="-5,0,0,5" />
+        <Setter Property="Opacity" Value="1" />
+        <Setter Property="Foreground" Value="{StaticResource TextColorStandard}" />
+        <Setter Property="BorderBrush" Value="{StaticResource RadioButtonBorder}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Grid x:Name="HauptGrid" Background="{StaticResource RadioButtonBackgroundColor}">
+
+                        <Grid>
+
+
+                            <Grid Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=RadioButton}}" Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=RadioButton}}">
+                                <ripple:RippleEffectDecorator Background="Transparent" HighlightBackground="#33FFFFFF" />
+                            </Grid>
+
+
+                            <Border
+                                x:Name="FirstBorder"
+                                Width="4"
+                                Height="50"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Background="{StaticResource FirstBorderBackgroundColor}"
+                                Visibility="Hidden" />
+
+                            <Border
+                                x:Name="SecondBorder"
+                                Width="4"
+                                Height="50"
+                                Margin="5,0,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Background="{StaticResource SecondBorderBackgroundColor}"
+                                Visibility="Hidden" />
+
+                        </Grid>
+
+
+                        <ContentPresenter
+                            Margin="15,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center" />
+
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+
+
+                        <Trigger Property="IsChecked" Value="True">
+
+                            <Setter Property="Foreground" Value="{StaticResource TextColorIsChecked}" />
+                            <Setter TargetName="SecondBorder" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="HauptGrid" Property="Background" Value="{StaticResource RadioButtonBackgroundColorChecked}" />
+
+
+                        </Trigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsChecked" Value="False" />
+                            </MultiTrigger.Conditions>
+
+                            <Setter TargetName="FirstBorder" Property="Visibility" Value="Visible" />
+                            <Setter Property="Foreground" Value="{StaticResource TextColorMouseOver}" />
+                            <Setter TargetName="HauptGrid" Property="Background" Value="{StaticResource RadioButtonBackgroundColorMouseOver}" />
+
+
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard x:Name="MouseOverStoryEnter">
+                                    <Storyboard>
+
+                                        <ThicknessAnimation
+                                            Storyboard.TargetProperty="Margin"
+                                            To="0 0 0 5"
+                                            Duration="0:0:0.2" />
+
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                            </MultiTrigger.EnterActions>
+
+                            <MultiTrigger.ExitActions>
+
+                                <BeginStoryboard x:Name="MouseOverStoryEnd">
+                                    <Storyboard>
+                                        <ThicknessAnimation
+                                            Storyboard.TargetProperty="Margin"
+                                            To="-5 0 0 5"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                            </MultiTrigger.ExitActions>
+
+                        </MultiTrigger>
+
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="menuButtonText" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Montserrat" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="FontSize" Value="13.5" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+
+</ResourceDictionary>

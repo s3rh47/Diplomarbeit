@@ -1,0 +1,79 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\add_user_logo.png" />
+    <None Remove="Images\arrow.png" />
+    <None Remove="Images\arrowClicked.png" />
+    <None Remove="Images\arrowCurrent.png" />
+    <None Remove="Images\arrowMouseOver.png" />
+    <None Remove="Images\austriaFlag.png" />
+    <None Remove="Images\englandFlag.png" />
+    <None Remove="Images\erzincanSelale.jpg" />
+    <None Remove="Images\hearing.png" />
+    <None Remove="Images\HomeClicked.png" />
+    <None Remove="Images\HomeCurrent.png" />
+    <None Remove="Images\HomeMouseOver.png" />
+    <None Remove="Images\HTL_Logo_Ohne_Text.png" />
+    <None Remove="Images\HTL_Wien_West_Logo_White.png" />
+    <None Remove="Images\login.png" />
+    <None Remove="Images\logout.png" />
+    <None Remove="Images\OK.png" />
+    <None Remove="Images\practice.png" />
+    <None Remove="Images\quiz.png" />
+    <None Remove="Images\SettingsClicked.png" />
+    <None Remove="Images\SettingsCurrent.png" />
+    <None Remove="Images\SettingsMouseOver.png" />
+    <None Remove="Images\turkeyFlag.png" />
+    <None Remove="Images\user_logo.png" />
+    <None Remove="Images\warning.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Cloud.TextToSpeech.V1" Version="3.2.0" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+    <PackageReference Include="NAudio" Version="2.1.0" />
+    <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.117" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\austriaFlag.png" />
+    <Resource Include="Images\englandFlag.png" />
+    <Resource Include="Images\erzincanSelale.jpg" />
+    <Resource Include="Images\hearing.png" />
+    <Resource Include="Images\HTL_Logo_Ohne_Text.png" />
+    <Resource Include="Images\HTL_Wien_West_Logo_White.png" />
+    <Resource Include="Images\OK.png" />
+    <Resource Include="Images\practice.png" />
+    <Resource Include="Images\quiz.png" />
+    <Resource Include="Images\turkeyFlag.png" />
+    <Resource Include="Images\warning.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Components\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Components\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="SprachDatenbank.sqlite3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

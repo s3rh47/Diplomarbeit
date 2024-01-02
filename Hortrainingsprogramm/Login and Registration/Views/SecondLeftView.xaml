@@ -1,0 +1,35 @@
+﻿<UserControl
+    x:Class="Hortrainingsprogramm.Login_and_Registration.Views.SecondLeftView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Hortrainingsprogramm.Login_and_Registration.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="250"
+    Style="{StaticResource pageStyleFromDownToUp}"
+    mc:Ignorable="d">
+
+    <Grid>
+
+        <!--  Stackpanel in der linken Spalte  -->
+        <StackPanel Grid.Column="0">
+            <!--  Anzeige von HTL Logo  -->
+            <Image
+                Margin="10,10,10,20"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                Source="/Images/HTL_Wien_West_Logo_White.png"
+                Stretch="Fill" />
+
+            <!--  About Text Programming  -->
+            <TextBlock
+                Width="190"
+                Margin="0,50,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Foreground="White"
+                OpacityMask="Black"
+                TextWrapping="Wrap"><Run Language="de-de" Text="* " /><Run Text=" " /><Run Text="Designed by " /><Run Text=" " /><Run Text="Serhat Karadag" /><LineBreak /><Run Language="de-de" Text="* " /><Run Text=" " /><Run Text="Developed by " /><Run Text=" " /><Run Text="Serhat Karadag" /><LineBreak /></TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>
